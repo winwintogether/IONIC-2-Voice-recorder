@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Speechpad Recorder</ion-title>    
+  </ion-navbar>
+  <ion-grid>
+    <ion-row>
+        <ion-col width-33><ion-icon name="folder" style="font-size:30px"></ion-icon></ion-col>
+        <ion-col width-33><ion-icon name="settings" style="font-size:30px"></ion-icon></ion-col>
+        <ion-col width-33><ion-icon name="search" style="font-size:30px"></ion-icon></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+<ion-content padding>
+  <ion-list *ngIf="Data.length==null || Data.length==0">
+     <div style="text-align:center; margin-top: 50px">
+       <h3>No Recordings</h3>
+       <h4>Tap the microphone icon below</h4>
+       <h4>to record</h4>
+     </div>
+  </ion-list>
+  <ion-list *ngIf="Data.length > 0">
+    <ion-item class="record-item" *ngFor="let file of Data" (click)="audioplay(file.name)">
+        <ion-avatar item-left>
+          <img src="assets/img/logo.png"/>
+        </ion-avatar>
+        <h4 style="margin-top:2px">{{file.name}}</h4>
+        <p>{{file.create_time}}</p>
+        <p item-right>{{file.duration}}</p>       
+    </ion-item>   
+   </ion-list>
+</ion-content>

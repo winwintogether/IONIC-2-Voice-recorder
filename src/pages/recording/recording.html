@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title >
+      Record
+    </ion-title>
+  </ion-navbar>
+   <ion-grid style="padding-left:10px; padding-right:10px">
+    <ion-row>        
+        <ion-input type="text" required [(ngModel)]="audioRecorder.recording_name" placeholder="TAP TO NAME THIS RESOCRDING"></ion-input>
+    </ion-row>
+    <ion-row>
+        <ion-col width-75><p item-left>{{current_datetime}}</p></ion-col>
+        <ion-col widht-25><p item-right>{{recording_time}}</p></ion-col>  
+    </ion-row>
+  </ion-grid>      
+</ion-header>
+<ion-content padding>
+	<img src="assets/img/waveform.png" style="width:100%; height:auto"/>
+
+
+ <ion-grid>
+    <ion-row>
+        <ion-col width-25>
+          <button (click)="startRecording()" class="buttton-start-recording" [disabled]="audioRecorder.state != AudioRecorderState.Ready">
+          <ion-icon name="mic" style="font-size:40px"></ion-icon>
+          </button>
+        </ion-col>        
+        <ion-col width-25>
+          <button (click)="stopRecording()" class="buttton-stop-recording" [disabled]="audioRecorder.state != AudioRecorderState.Recording">
+          <ion-icon name="mic-off" style="font-size:40px"></ion-icon>
+          </button> 
+        </ion-col>
+        <ion-col width-25>
+          <button (click)="startPlayback()" class="buttton-start-playback" [disabled]="audioRecorder.state != AudioRecorderState.Recorded">
+          <ion-icon name="play" style="font-size:40px"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col width-25>
+          <button (click)="stopPlayback()" class="buttton-stop-playback" [disabled]="audioRecorder.state != AudioRecorderState.Playing">
+          <ion-icon name="square" style="font-size:40px"></ion-icon>
+          </button>  
+        </ion-col>
+    </ion-row>
+  </ion-grid>  
+
+</ion-content>

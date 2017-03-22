@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Audio Player
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	
+	<div style="text-align:center; padding-top:40px">
+      <h4 color="primary">{{filename}}</h4>
+  		
+        <ion-grid>
+        	<ion-row>
+        		<ion-col width-50>
+		        	 <h4>{{currentduration}}</h4>
+		        </ion-col>
+		        <ion-col width-50>
+		        	 <h4>{{duration}}</h4>
+		        </ion-col>
+        	</ion-row>
+        	
+		    <ion-row>
+		        <ion-col width-33>
+		        	 <button color="dark" (click)="audioplay()" style="background-color:white" [disabled]="state != AudioPlayerState.Ready"><ion-icon name="play" style="font-size:40px"></ion-icon></button>
+		        </ion-col>
+
+		        <ion-col width-33>		        	 
+		        	 <button color="light" (click)="audiopause()" style="background-color:white" [disabled]="state != AudioPlayerState.Playing"> <ion-icon name="pause" style="font-size:40px"></ion-icon></button>
+		        </ion-col>	 
+
+		        <ion-col width-33>
+		        	 <button color="secondary"(click)="audiostop()" style="background-color:white" [disabled]="state != AudioPlayerState.Playing"><ion-icon name="square" style="font-size:40px"></ion-icon></button>
+		        </ion-col>	 	        
+		    </ion-row>
+  		</ion-grid>
+    </div>  
+</ion-content>
